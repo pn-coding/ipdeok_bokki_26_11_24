@@ -1,0 +1,514 @@
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a{
+    text-decoration: none;
+    color: black;
+}
+
+body {
+  width: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #000000;
+  background: #ffffff;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.section-title {
+  font-size: 30px;
+  font-weight: 500;
+  color: #000000;
+  text-align: center;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  display: block;
+  width: auto;
+  height: 30px;
+  object-fit: contain;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+.menu-btn i {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  width: 100%;
+  height: 500px;
+  background-color: #858585;
+
+  /* 추후 이미지 경로 지정 */
+  background-image: url('./images/hero.jpg');
+  background-position: center;
+  background-size: cover;
+}
+
+
+/* =========================
+   SECTION 1 : ORDER
+========================= */
+
+.section-order {
+  width: 100%;
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order-row {
+  display: flex;
+  gap: 16px;
+}
+
+.order-btn {
+  width: 100%;
+  height: 80px;
+  border-radius: 12px;
+  background: #858585;
+  color: #ffffff;
+
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.order-btn.primary {
+  width: 100%;
+}
+
+
+/* =========================
+   SECTION 2 : RECOMMEND
+========================= */
+
+.section-recommend {
+  width: 100%;
+  padding: 40px 0;
+  background: #eeeeee;
+}
+
+.section-recommend .section-title {
+  margin-bottom: 20px;
+}
+
+.tag-list {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.tag {
+  min-width: 75px;
+  height: 35px;
+  padding: 0 12px;
+
+  border: 1px solid #bcbcbc;
+  border-radius: 20px;
+  background: transparent;
+
+  color: #555555;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.tag.active {
+  background: #858585;
+  border-color: #858585;
+  color: #ffffff;
+}
+
+.recommend-list {
+  width: 100%;
+  height: 260px;
+  margin-top: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+}
+
+.recommend-card {
+  border-radius: 12px;
+  background: #858585;
+  overflow: hidden;
+}
+
+.recommend-card.side-card {
+  flex: 0 0 18%;
+  height: 100px;
+}
+
+.recommend-card.side-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recommend-card.featured {
+  flex: 0 0 64%;
+  height: 190px;
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.recommend-info {
+  width: 100%;
+  text-align: center;
+  color: #ffffff;
+}
+
+.recommend-label {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.recommend-info p {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.recommend-info strong {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.more-btn {
+  margin-top: 8px;
+  padding: 5px 16px;
+  border: 1px solid #ffffff;
+  border-radius: 20px;
+  background: transparent;
+  color: #ffffff;
+  font-size: 11px;
+}
+
+.recommend-image {
+  width: 65%;
+  height: 110px;
+  background: #292929;
+}
+
+.recommend-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* =========================
+   SECTION 3 : MENU
+========================= */
+
+.section-menu {
+  width: 100%;
+  padding: 40px 20px;
+}
+
+.section-menu .section-title {
+  margin-bottom: 20px;
+}
+
+.section-menu .tag-list {
+  margin-bottom: 25px;
+}
+
+.menu-grid {
+  width: 100%;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px 16px;
+}
+
+.menu-card {
+  width: 100%;
+}
+
+.menu-image {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background: #858585;
+  overflow: hidden;
+}
+
+.menu-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.menu-name {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+}
+
+
+/* =========================
+   SECTION 4 : EVENT
+========================= */
+
+.section-event {
+  width: 100%;
+  padding: 30px 20px 50px;
+}
+
+.section-event .section-title {
+  margin-bottom: 10px;
+}
+
+.event-desc {
+  font-size: 14px;
+  font-weight: 500;
+  color: #838383;
+  text-align: center;
+}
+
+.event-tabs {
+  width: 100%;
+  margin: 25px 0 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-tab {
+  width: 33.333%;
+  padding: 10px 0;
+
+  background: transparent;
+  color: #555555;
+
+  font-size: 14px;
+  font-weight: 500;
+  border-bottom: 1px solid #dddddd;
+}
+
+.event-tab.active {
+  color: #000000;
+  font-weight: 700;
+  border-bottom: 2px solid #000000;
+}
+
+.event-list {
+  width: 100%;
+}
+
+.event-card {
+  width: 100%;
+  border: 1px solid #eeeeee;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.event-image {
+  width: 100%;
+  aspect-ratio: 1 / 0.65;
+  background: #858585;
+  overflow: hidden;
+}
+
+.event-image img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.event-content {
+  padding: 15px;
+}
+
+.event-category {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555555;
+}
+
+.event-title {
+  margin-top: 5px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.event-date {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 300;
+  color: #555555;
+}
+
+
+/* =========================
+   SIDE MENU
+========================= */
+
+/* 배경 오버레이 */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  z-index: 100;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* 사이드 메뉴 */
+.side-menu {
+  position: absolute;
+  top: 0;
+
+  right: 0;
+
+  width: 66.666vw;
+  max-width: 333px;
+  height: 100vh;
+  height: 100dvh;
+
+  padding: 25px 20px;
+
+  background: #ffffff;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+
+  z-index: 101;
+}
+
+.side-menu.active {
+  transform: translateX(0);
+}
+
+
+/* 메뉴 상단 */
+.side-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 25px;
+  border-bottom: 1px solid #eeeeee;
+
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.menu-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+}
+
+.menu-close i {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* 메뉴 리스트 */
+.side-menu-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.side-menu-list li {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.side-menu-list a {
+  display: block;
+  padding: 20px 0;
+
+  color: #000000;
+  text-decoration: none;
+
+  font-size: 16px;
+  font-weight: 500;
+}
