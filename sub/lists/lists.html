@@ -1,13 +1,345 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>리스트 페이지</title>
-    <link rel="stylesheet" href="css/detail.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>떡볶이 메뉴</title>
+
+  <!-- Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="css/lists.css">
 </head>
+
 <body>
-    <h1>리스트 페이지</h1>
-    
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <a href="../../index.html" class="logo">
+        <img src="../../img/logo.png" alt="입덕볶이 로고">
+      </a>
+
+      <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+
+    <!-- PAGE TITLE -->
+    <section class="page-title">
+      <h1>떡볶이 메뉴</h1>
+      <p>입덕볶이의 다양한 메뉴를 만나보세요.</p>
+    </section>
+
+
+    <!-- SEARCH -->
+    <section class="search-section">
+
+      <div class="search-box">
+        <i data-lucide="search"></i>
+        <input type="text" id="menuSearch" placeholder="메뉴명을 검색해보세요.">
+        <button type="button" id="searchReset" aria-label="검색어 지우기">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- CATEGORY -->
+    <section class="category-section">
+
+      <div class="category-list">
+        <button class="category-btn active" data-category="all">전체</button>
+        <button class="category-btn" data-category="tteokbokki">떡볶이</button>
+        <button class="category-btn" data-category="fried">튀김</button>
+        <button class="category-btn" data-category="side">사이드</button>
+      </div>
+
+    </section>
+
+
+    <!-- MENU LIST -->
+    <section class="menu-section">
+
+      <div class="menu-top">
+        <h2>전체 메뉴</h2>
+
+        <select id="menuSort" class="menu-sort" aria-label="메뉴 정렬">
+          <option value="default">기본순</option>
+          <option value="name">이름순</option>
+          <option value="low">낮은 가격순</option>
+          <option value="high">높은 가격순</option>
+        </select>
+      </div>
+
+
+      <div class="menu-grid" id="menuGrid">
+
+        <!-- MENU 01 -->
+        <article class="menu-card" data-category="tteokbokki" data-price="12000" data-name="기본 떡볶이">
+          <a href="../detail/detail.html" class="menu-link">
+
+            <div class="menu-image">
+              <img src="../../images/menu-01.jpg" alt="기본 떡볶이">
+              <span class="menu-badge">BEST</span>
+            </div>
+
+            <div class="menu-info">
+              <h3>기본 떡볶이</h3>
+              <p class="menu-desc">입덕볶이의 대표 떡볶이 메뉴</p>
+              <strong class="menu-price">12,000원</strong>
+            </div>
+
+          </a>
+        </article>
+
+
+        <!-- MENU 02 -->
+        <article class="menu-card" data-category="tteokbokki" data-price="14000" data-name="치즈 떡볶이">
+          <a href="../detail/detail.html" class="menu-link">
+
+            <div class="menu-image">
+              <img src="../../images/menu-02.jpg" alt="치즈 떡볶이">
+            </div>
+
+            <div class="menu-info">
+              <h3>치즈 떡볶이</h3>
+              <p class="menu-desc">고소한 치즈가 가득한 떡볶이</p>
+              <strong class="menu-price">14,000원</strong>
+            </div>
+
+          </a>
+        </article>
+
+
+        <!-- MENU 03 -->
+        <article class="menu-card" data-category="tteokbokki" data-price="15000" data-name="로제 떡볶이">
+          <a href="../detail/detail.html" class="menu-link">
+
+            <div class="menu-image">
+              <img src="../../images/menu-03.jpg" alt="로제 떡볶이">
+            </div>
+
+            <div class="menu-info">
+              <h3>로제 떡볶이</h3>
+              <p class="menu-desc">부드럽고 진한 로제 소스</p>
+              <strong class="menu-price">15,000원</strong>
+            </div>
+
+          </a>
+        </article>
+
+
+        <!-- MENU 04 -->
+        <article class="menu-card" data-category="fried" data-price="8000" data-name="모둠 튀김">
+          <a href="../detail/detail.html" class="menu-link">
+
+            <div class="menu-image">
+              <img src="../../images/menu-04.jpg" alt="모둠 튀김">
+            </div>
+
+            <div class="menu-info">
+              <h3>모둠 튀김</h3>
+              <p class="menu-desc">바삭하게 즐기는 모둠 튀김</p>
+              <strong class="menu-price">8,000원</strong>
+            </div>
+
+          </a>
+        </article>
+
+
+        <!-- MENU 05 -->
+        <article class="menu-card" data-category="fried" data-price="6000" data-name="김말이 튀김">
+          <a href="../detail/detail.html" class="menu-link">
+
+            <div class="menu-image">
+              <img src="../../images/menu-05.jpg" alt="김말이 튀김">
+            </div>
+
+            <div class="menu-info">
+              <h3>김말이 튀김</h3>
+              <p class="menu-desc">바삭한 식감의 김말이</p>
+              <strong class="menu-price">6,000원</strong>
+            </div>
+
+          </a>
+        </article>
+
+
+        <!-- MENU 06 -->
+        <article class="menu-card" data-category="side" data-price="5000" data-name="주먹밥">
+          <a href="../detail/detail.html" class="menu-link">
+
+            <div class="menu-image">
+              <img src="../../images/menu-06.jpg" alt="주먹밥">
+            </div>
+
+            <div class="menu-info">
+              <h3>주먹밥</h3>
+              <p class="menu-desc">떡볶이와 함께 즐기는 주먹밥</p>
+              <strong class="menu-price">5,000원</strong>
+            </div>
+
+          </a>
+        </article>
+
+      </div>
+
+      <p class="no-result" id="noResult">
+        검색 결과가 없습니다.
+      </p>
+
+    </section>
+
+
+    <!-- SIDE MENU -->
+    <nav class="side-menu" id="sideMenu">
+
+      <div class="side-menu-header">
+        <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <ul class="side-menu-list">
+        <li><a href="lists.html">떡볶이 메뉴</a></li>
+        <li><a href="#">소개</a></li>
+        <li><a href="#">커뮤니티</a></li>
+        <li><a href="#">로그인</a></li>
+      </ul>
+
+    </nav>
+
+  </div>
+
+
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+    lucide.createIcons();
+
+    // SIDE MENU
+    const menuOpen = document.getElementById('menuOpen');
+    const menuClose = document.getElementById('menuClose');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      sideMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+      document.body.classList.add('menu-open');
+    }
+
+    function closeMenu() {
+      sideMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuOpen.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+
+    document.querySelectorAll('.side-menu-list a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+
+    // MENU SEARCH / CATEGORY / SORT
+    const menuSearch = document.getElementById('menuSearch');
+    const searchReset = document.getElementById('searchReset');
+    const menuSort = document.getElementById('menuSort');
+    const menuGrid = document.getElementById('menuGrid');
+    const menuCards = Array.from(document.querySelectorAll('.menu-card'));
+    const categoryButtons = document.querySelectorAll('.category-btn');
+    const noResult = document.getElementById('noResult');
+
+    let selectedCategory = 'all';
+
+    function filterMenus() {
+      const keyword = menuSearch.value.trim().toLowerCase();
+
+      let visibleCount = 0;
+
+      menuCards.forEach(card => {
+        const name = card.dataset.name.toLowerCase();
+        const category = card.dataset.category;
+
+        const matchesKeyword = name.includes(keyword);
+        const matchesCategory =
+          selectedCategory === 'all' || category === selectedCategory;
+
+        const visible = matchesKeyword && matchesCategory;
+
+        card.style.display = visible ? '' : 'none';
+
+        if (visible) visibleCount++;
+      });
+
+      noResult.style.display = visibleCount === 0 ? 'block' : 'none';
+    }
+
+    categoryButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        categoryButtons.forEach(btn => btn.classList.remove('active'));
+
+        button.classList.add('active');
+        selectedCategory = button.dataset.category;
+
+        filterMenus();
+      });
+    });
+
+    menuSearch.addEventListener('input', filterMenus);
+
+    searchReset.addEventListener('click', () => {
+      menuSearch.value = '';
+      filterMenus();
+      menuSearch.focus();
+    });
+
+    menuSort.addEventListener('change', () => {
+      const sortType = menuSort.value;
+
+      const sortedCards = [...menuCards];
+
+      if (sortType === 'name') {
+        sortedCards.sort((a, b) =>
+          a.dataset.name.localeCompare(b.dataset.name, 'ko')
+        );
+      }
+
+      if (sortType === 'low') {
+        sortedCards.sort((a, b) =>
+          Number(a.dataset.price) - Number(b.dataset.price)
+        );
+      }
+
+      if (sortType === 'high') {
+        sortedCards.sort((a, b) =>
+          Number(b.dataset.price) - Number(a.dataset.price)
+        );
+      }
+
+      sortedCards.forEach(card => menuGrid.appendChild(card));
+    });
+  </script>
+
 </body>
 </html>

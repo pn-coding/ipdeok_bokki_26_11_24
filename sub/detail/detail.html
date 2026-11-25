@@ -1,12 +1,337 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>상세페이지</title>
-    <link rel="stylesheet" href="css/detail.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>메뉴 상세페이지</title>
+
+  <!-- Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="css/detail.css">
 </head>
+
 <body>
-    <h1>상세페이지</h1>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <a href="../../index.html" class="logo">
+        <img src="../../img/logo.png" alt="입덕볶이 로고">
+      </a>
+
+      <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+
+    <!-- PRODUCT IMAGE -->
+    <section class="product-image-section">
+
+      <div class="product-image">
+        <img src="../../images/menu-01.jpg" alt="기본 떡볶이">
+      </div>
+
+    </section>
+
+
+    <!-- PRODUCT INFO -->
+    <section class="product-info">
+
+      <span class="product-badge">BEST</span>
+
+      <h1 class="product-name">기본 떡볶이</h1>
+
+      <p class="product-desc">
+        입덕볶이의 대표 메뉴!
+        매콤달콤한 소스와 쫄깃한 떡의 조화를 즐겨보세요.
+      </p>
+
+      <strong class="product-price">12,000원</strong>
+
+    </section>
+
+
+    <!-- PRODUCT DESCRIPTION -->
+    <section class="product-description">
+
+      <h2 class="section-title">메뉴 소개</h2>
+
+      <div class="description-image">
+        <img src="../../images/menu-detail-01.jpg" alt="떡볶이 상세 이미지">
+      </div>
+
+      <p class="description-text">
+        입덕볶이만의 특별한 소스로 완성한 대표 떡볶이입니다.
+        쫄깃한 떡과 풍부한 양념의 맛을 경험해보세요.
+      </p>
+
+    </section>
+
+
+    <!-- SPICY OPTION -->
+    <section class="option-section">
+
+      <div class="option-title">
+        <h2>맵기 선택</h2>
+        <span>필수 선택</span>
+      </div>
+
+      <div class="option-list">
+
+        <label class="option-item">
+          <input type="radio" name="spicy" value="0" checked>
+          <span class="option-label">순한맛</span>
+          <span class="option-price">무료</span>
+        </label>
+
+        <label class="option-item">
+          <input type="radio" name="spicy" value="0">
+          <span class="option-label">보통맛</span>
+          <span class="option-price">무료</span>
+        </label>
+
+        <label class="option-item">
+          <input type="radio" name="spicy" value="0">
+          <span class="option-label">매운맛</span>
+          <span class="option-price">무료</span>
+        </label>
+
+      </div>
+
+    </section>
+
+
+    <!-- EXTRA OPTION -->
+    <section class="option-section">
+
+      <div class="option-title">
+        <h2>추가 옵션</h2>
+        <span>선택 사항</span>
+      </div>
+
+      <div class="option-list">
+
+        <label class="option-item">
+          <input type="checkbox" class="extra-option" value="2000">
+          <span class="option-label">치즈 추가</span>
+          <span class="option-price">+2,000원</span>
+        </label>
+
+        <label class="option-item">
+          <input type="checkbox" class="extra-option" value="1000">
+          <span class="option-label">계란 추가</span>
+          <span class="option-price">+1,000원</span>
+        </label>
+
+        <label class="option-item">
+          <input type="checkbox" class="extra-option" value="1500">
+          <span class="option-label">어묵 추가</span>
+          <span class="option-price">+1,500원</span>
+        </label>
+
+      </div>
+
+    </section>
+
+
+    <!-- QUANTITY -->
+    <section class="quantity-section">
+
+      <h2>수량</h2>
+
+      <div class="quantity-control">
+        <button type="button" id="minusBtn" aria-label="수량 감소">
+          <i data-lucide="minus"></i>
+        </button>
+
+        <span id="quantity">1</span>
+
+        <button type="button" id="plusBtn" aria-label="수량 증가">
+          <i data-lucide="plus"></i>
+        </button>
+      </div>
+
+    </section>
+
+
+    <!-- TOTAL PRICE -->
+    <section class="total-section">
+
+      <div class="total-row">
+        <span>상품 금액</span>
+        <strong id="basePrice">12,000원</strong>
+      </div>
+
+      <div class="total-row">
+        <span>추가 옵션 금액</span>
+        <strong id="extraPrice">0원</strong>
+      </div>
+
+      <div class="total-row total-final">
+        <span>총 결제 금액</span>
+        <strong id="totalPrice">12,000원</strong>
+      </div>
+
+    </section>
+
+
+    <!-- ORDER BUTTON -->
+    <section class="order-section">
+
+      <button type="button" class="order-btn" id="orderBtn">
+        주문하기
+      </button>
+
+    </section>
+
+
+    <!-- SIDE MENU -->
+    <nav class="side-menu" id="sideMenu">
+
+      <div class="side-menu-header">
+        <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <ul class="side-menu-list">
+        <li><a href="../lists/lists.html">떡볶이 메뉴</a></li>
+        <li><a href="#">소개</a></li>
+        <li><a href="#">커뮤니티</a></li>
+        <li><a href="#">로그인</a></li>
+      </ul>
+
+    </nav>
+
+  </div>
+
+
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+    lucide.createIcons();
+
+    // SIDE MENU
+    const menuOpen = document.getElementById('menuOpen');
+    const menuClose = document.getElementById('menuClose');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      sideMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+      document.body.classList.add('menu-open');
+    }
+
+    function closeMenu() {
+      sideMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuOpen.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+
+    document.querySelectorAll('.side-menu-list a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+
+    // PRODUCT PRICE
+    const basePrice = 12000;
+    let quantity = 1;
+
+    const quantityText = document.getElementById('quantity');
+    const minusBtn = document.getElementById('minusBtn');
+    const plusBtn = document.getElementById('plusBtn');
+
+    const extraOptions = document.querySelectorAll('.extra-option');
+
+    const basePriceText = document.getElementById('basePrice');
+    const extraPriceText = document.getElementById('extraPrice');
+    const totalPriceText = document.getElementById('totalPrice');
+
+    function formatPrice(price) {
+      return price.toLocaleString('ko-KR') + '원';
+    }
+
+    function updatePrice() {
+
+      let extraPrice = 0;
+
+      extraOptions.forEach(option => {
+        if (option.checked) {
+          extraPrice += Number(option.value);
+        }
+      });
+
+      const totalPrice = (basePrice + extraPrice) * quantity;
+
+      quantityText.textContent = quantity;
+
+      basePriceText.textContent = formatPrice(basePrice * quantity);
+      extraPriceText.textContent = formatPrice(extraPrice * quantity);
+      totalPriceText.textContent = formatPrice(totalPrice);
+    }
+
+    minusBtn.addEventListener('click', () => {
+      if (quantity > 1) {
+        quantity--;
+        updatePrice();
+      }
+    });
+
+    plusBtn.addEventListener('click', () => {
+      quantity++;
+      updatePrice();
+    });
+
+    extraOptions.forEach(option => {
+      option.addEventListener('change', updatePrice);
+    });
+
+    // ORDER BUTTON
+    document.getElementById('orderBtn').addEventListener('click', () => {
+
+      const orderData = {
+        name: '기본 떡볶이',
+        quantity: quantity,
+        options: Array.from(extraOptions)
+          .filter(option => option.checked)
+          .map(option => ({
+            name: option.nextElementSibling.textContent,
+            price: Number(option.value)
+          })),
+        totalPrice: (basePrice + Array.from(extraOptions)
+          .filter(option => option.checked)
+          .reduce((sum, option) => sum + Number(option.value), 0)) * quantity
+      };
+
+      sessionStorage.setItem('orderData', JSON.stringify(orderData));
+
+      location.href = '../payment/payment.html';
+    });
+
+    updatePrice();
+
+  </script>
+
 </body>
 </html>

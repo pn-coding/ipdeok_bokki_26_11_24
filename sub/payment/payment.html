@@ -1,12 +1,400 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>결제페이지</title>
-    <link rel="stylesheet" href="css/detail.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주문하기</title>
+
+  <!-- Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="css/payment.css">
 </head>
+
 <body>
-    <h1>결제페이지</h1>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+      <a href="../../index.html" class="logo">
+        <img src="../../img/logo.png" alt="입덕볶이 로고">
+      </a>
+
+      <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
+        <i data-lucide="menu"></i>
+      </button>
+    </header>
+
+
+    <!-- PAGE TITLE -->
+    <section class="page-title">
+      <h1>주문하기</h1>
+      <p>주문 정보를 확인하고 결제를 진행해주세요.</p>
+    </section>
+
+
+    <!-- ORDER PRODUCT -->
+    <section class="payment-section">
+
+      <h2 class="section-title">주문 상품</h2>
+
+      <div class="order-product">
+
+        <div class="product-image">
+          <img src="../../images/menu-01.jpg" alt="주문 메뉴" id="productImage">
+        </div>
+
+        <div class="product-info">
+          <h3 id="productName">기본 떡볶이</h3>
+          <p id="productOption">옵션 정보</p>
+          <p class="product-quantity" id="productQuantity">수량 1개</p>
+          <strong id="productPrice">12,000원</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- DELIVERY INFO -->
+    <section class="payment-section">
+
+      <h2 class="section-title">배송 정보</h2>
+
+      <div class="form-group">
+
+        <label for="customerName">받는 사람</label>
+        <input
+          type="text"
+          id="customerName"
+          placeholder="이름을 입력해주세요."
+        >
+
+        <label for="customerPhone">연락처</label>
+        <input
+          type="tel"
+          id="customerPhone"
+          placeholder="휴대폰 번호를 입력해주세요."
+        >
+
+        <label for="customerAddress">주소</label>
+        <div class="address-row">
+          <input
+            type="text"
+            id="customerAddress"
+            placeholder="주소를 입력해주세요."
+          >
+          <button type="button" class="address-btn" id="addressBtn">
+            주소 입력
+          </button>
+        </div>
+
+        <label for="detailAddress">상세 주소</label>
+        <input
+          type="text"
+          id="detailAddress"
+          placeholder="상세 주소를 입력해주세요."
+        >
+
+        <label for="deliveryRequest">배송 요청사항</label>
+        <select id="deliveryRequest">
+          <option value="">요청사항 선택</option>
+          <option value="문 앞에 놓아주세요.">문 앞에 놓아주세요.</option>
+          <option value="직접 전달해주세요.">직접 전달해주세요.</option>
+          <option value="배송 전 연락주세요.">배송 전 연락주세요.</option>
+          <option value="없음">요청사항 없음</option>
+        </select>
+
+      </div>
+
+    </section>
+
+
+    <!-- PAYMENT METHOD -->
+    <section class="payment-section">
+
+      <h2 class="section-title">결제 수단</h2>
+
+      <div class="payment-method-list">
+
+        <label class="payment-method">
+          <input type="radio" name="paymentMethod" value="카드 결제" checked>
+          <span>카드 결제</span>
+        </label>
+
+        <label class="payment-method">
+          <input type="radio" name="paymentMethod" value="간편 결제">
+          <span>간편 결제</span>
+        </label>
+
+        <label class="payment-method">
+          <input type="radio" name="paymentMethod" value="현장 결제">
+          <span>현장 결제</span>
+        </label>
+
+      </div>
+
+    </section>
+
+
+    <!-- PRICE SUMMARY -->
+    <section class="payment-section">
+
+      <h2 class="section-title">결제 금액</h2>
+
+      <div class="price-summary">
+
+        <div class="price-row">
+          <span>상품 금액</span>
+          <strong id="summaryProductPrice">12,000원</strong>
+        </div>
+
+        <div class="price-row">
+          <span>배달비</span>
+          <strong id="deliveryPrice">3,000원</strong>
+        </div>
+
+        <div class="price-row total-row">
+          <span>최종 결제 금액</span>
+          <strong id="finalPrice">15,000원</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- AGREEMENT -->
+    <section class="agreement-section">
+
+      <label class="agreement-item">
+        <input type="checkbox" id="agreeTerms">
+        <span>주문 및 결제 내용을 확인했으며 이에 동의합니다.</span>
+      </label>
+
+    </section>
+
+
+    <!-- PAYMENT BUTTON -->
+    <section class="payment-button-section">
+
+      <button type="button" class="payment-btn" id="paymentBtn">
+        15,000원 결제하기
+      </button>
+
+      <p class="payment-notice">
+        본 페이지는 프로토타입으로 실제 결제는 진행되지 않습니다.
+      </p>
+
+    </section>
+
+
+    <!-- SIDE MENU -->
+    <nav class="side-menu" id="sideMenu">
+
+      <div class="side-menu-header">
+        <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <ul class="side-menu-list">
+        <li><a href="../lists/lists.html">떡볶이 메뉴</a></li>
+        <li><a href="#">소개</a></li>
+        <li><a href="#">커뮤니티</a></li>
+        <li><a href="#">로그인</a></li>
+      </ul>
+
+    </nav>
+
+  </div>
+
+
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    lucide.createIcons();
+
+
+    // SIDE MENU
+    const menuOpen = document.getElementById('menuOpen');
+    const menuClose = document.getElementById('menuClose');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      sideMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+      document.body.classList.add('menu-open');
+    }
+
+    function closeMenu() {
+      sideMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuOpen.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+
+    // ORDER DATA
+    const savedOrder = sessionStorage.getItem('orderData');
+
+    const orderData = savedOrder
+      ? JSON.parse(savedOrder)
+      : {
+          name: '기본 떡볶이',
+          quantity: 1,
+          options: [],
+          totalPrice: 12000
+        };
+
+    const deliveryFee = 3000;
+
+    const formatPrice = price =>
+      Number(price).toLocaleString('ko-KR') + '원';
+
+
+    // PRODUCT INFO
+    document.getElementById('productName').textContent =
+      orderData.name;
+
+    document.getElementById('productQuantity').textContent =
+      '수량 ' + orderData.quantity + '개';
+
+    document.getElementById('productPrice').textContent =
+      formatPrice(orderData.totalPrice);
+
+    const optionNames = orderData.options
+      .map(option => option.name)
+      .filter(Boolean);
+
+    document.getElementById('productOption').textContent =
+      optionNames.length > 0
+        ? optionNames.join(' / ')
+        : '추가 옵션 없음';
+
+
+    // PRICE SUMMARY
+    const finalPrice = orderData.totalPrice + deliveryFee;
+
+    document.getElementById('summaryProductPrice').textContent =
+      formatPrice(orderData.totalPrice);
+
+    document.getElementById('deliveryPrice').textContent =
+      formatPrice(deliveryFee);
+
+    document.getElementById('finalPrice').textContent =
+      formatPrice(finalPrice);
+
+    document.getElementById('paymentBtn').textContent =
+      formatPrice(finalPrice) + ' 결제하기';
+
+
+    // ADDRESS BUTTON
+    document.getElementById('addressBtn').addEventListener('click', () => {
+      alert('주소 검색 기능은 추후 연동 예정입니다.');
+    });
+
+
+    // PAYMENT
+    document.getElementById('paymentBtn').addEventListener('click', () => {
+
+      const customerName =
+        document.getElementById('customerName').value.trim();
+
+      const customerPhone =
+        document.getElementById('customerPhone').value.trim();
+
+      const customerAddress =
+        document.getElementById('customerAddress').value.trim();
+
+      const detailAddress =
+        document.getElementById('detailAddress').value.trim();
+
+      const deliveryRequest =
+        document.getElementById('deliveryRequest').value;
+
+      const agreeTerms =
+        document.getElementById('agreeTerms').checked;
+
+      const paymentMethod =
+        document.querySelector('input[name="paymentMethod"]:checked').value;
+
+
+      if (!customerName) {
+        alert('받는 사람 이름을 입력해주세요.');
+        return;
+      }
+
+      if (!customerPhone) {
+        alert('연락처를 입력해주세요.');
+        return;
+      }
+
+      if (!/^[0-9-]{9,13}$/.test(customerPhone)) {
+        alert('올바른 연락처를 입력해주세요.');
+        return;
+      }
+
+      if (!customerAddress) {
+        alert('주소를 입력해주세요.');
+        return;
+      }
+
+      if (!detailAddress) {
+        alert('상세 주소를 입력해주세요.');
+        return;
+      }
+
+      if (!agreeTerms) {
+        alert('주문 및 결제 내용에 동의해주세요.');
+        return;
+      }
+
+
+      const paymentData = {
+        order: orderData,
+        customer: {
+          name: customerName,
+          phone: customerPhone,
+          address: customerAddress,
+          detailAddress: detailAddress,
+          request: deliveryRequest
+        },
+        paymentMethod: paymentMethod,
+        deliveryFee: deliveryFee,
+        finalPrice: finalPrice
+      };
+
+      sessionStorage.setItem(
+        'paymentData',
+        JSON.stringify(paymentData)
+      );
+
+      // 프로토타입 결제 완료 페이지 이동
+      location.href = '../complete/complete.html';
+
+    });
+
+  </script>
+
 </body>
 </html>

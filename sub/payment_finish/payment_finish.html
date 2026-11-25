@@ -1,12 +1,334 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>결제완료페이지</title>
-    <link rel="stylesheet" href="css/detail.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>주문 완료</title>
+
+  <!-- Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <link rel="stylesheet" href="css/payment_finish.css">
 </head>
+
 <body>
-    <h1>결제완료페이지</h1>
+
+  <div class="container">
+
+    <!-- HEADER -->
+    <header class="header">
+
+      <a href="../../index.html" class="logo">
+        <img src="../../img/logo.png" alt="입덕볶이 로고">
+      </a>
+
+      <button class="menu-btn" id="menuOpen" aria-label="메뉴 열기">
+        <i data-lucide="menu"></i>
+      </button>
+
+    </header>
+
+
+    <!-- COMPLETE MESSAGE -->
+    <section class="complete-section">
+
+      <div class="complete-icon">
+        <i data-lucide="check-circle"></i>
+      </div>
+
+      <h1 class="complete-title">
+        주문이 완료되었습니다!
+      </h1>
+
+      <p class="complete-desc">
+        입덕볶이를 주문해주셔서 감사합니다.<br>
+        맛있게 준비해서 보내드릴게요!
+      </p>
+
+    </section>
+
+
+    <!-- ORDER NUMBER -->
+    <section class="order-number-section">
+
+      <p>주문번호</p>
+
+      <strong id="orderNumber">-</strong>
+
+      <span id="orderDate">-</span>
+
+    </section>
+
+
+    <!-- ORDER PRODUCT -->
+    <section class="complete-content">
+
+      <h2 class="section-title">주문 상품</h2>
+
+      <div class="order-product">
+
+        <div class="product-image">
+          <img src="../../images/menu-01.jpg" alt="주문 메뉴">
+        </div>
+
+        <div class="product-info">
+
+          <h3 id="productName">기본 떡볶이</h3>
+
+          <p id="productOption">추가 옵션 없음</p>
+
+          <p id="productQuantity">수량 1개</p>
+
+          <strong id="productPrice">12,000원</strong>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CUSTOMER INFO -->
+    <section class="complete-content">
+
+      <h2 class="section-title">배송 정보</h2>
+
+      <div class="info-list">
+
+        <div class="info-row">
+          <span>받는 사람</span>
+          <strong id="customerName">-</strong>
+        </div>
+
+        <div class="info-row">
+          <span>연락처</span>
+          <strong id="customerPhone">-</strong>
+        </div>
+
+        <div class="info-row">
+          <span>주소</span>
+          <strong id="customerAddress">-</strong>
+        </div>
+
+        <div class="info-row">
+          <span>배송 요청사항</span>
+          <strong id="deliveryRequest">없음</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- PAYMENT INFO -->
+    <section class="complete-content">
+
+      <h2 class="section-title">결제 정보</h2>
+
+      <div class="price-summary">
+
+        <div class="price-row">
+          <span>상품 금액</span>
+          <strong id="summaryProductPrice">12,000원</strong>
+        </div>
+
+        <div class="price-row">
+          <span>배달비</span>
+          <strong id="deliveryPrice">3,000원</strong>
+        </div>
+
+        <div class="price-row">
+          <span>결제 수단</span>
+          <strong id="paymentMethod">카드 결제</strong>
+        </div>
+
+        <div class="price-row total-row">
+          <span>최종 결제 금액</span>
+          <strong id="finalPrice">15,000원</strong>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- BUTTON -->
+    <section class="button-section">
+
+      <a href="../../index.html" class="main-btn">
+        메인으로 돌아가기
+      </a>
+
+      <a href="../lists/lists.html" class="menu-btn-link">
+        메뉴 더 보기
+      </a>
+
+    </section>
+
+
+    <!-- SIDE MENU -->
+    <nav class="side-menu" id="sideMenu">
+
+      <div class="side-menu-header">
+
+        <button class="menu-close" id="menuClose" aria-label="메뉴 닫기">
+          <i data-lucide="x"></i>
+        </button>
+
+      </div>
+
+      <ul class="side-menu-list">
+        <li><a href="../lists/lists.html">떡볶이 메뉴</a></li>
+        <li><a href="#">소개</a></li>
+        <li><a href="#">커뮤니티</a></li>
+        <li><a href="#">로그인</a></li>
+      </ul>
+
+    </nav>
+
+  </div>
+
+
+  <!-- MENU OVERLAY -->
+  <div class="menu-overlay" id="menuOverlay"></div>
+
+
+  <!-- JAVASCRIPT -->
+  <script>
+
+    lucide.createIcons();
+
+
+    // SIDE MENU
+    const menuOpen = document.getElementById('menuOpen');
+    const menuClose = document.getElementById('menuClose');
+    const sideMenu = document.getElementById('sideMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+
+    function openMenu() {
+      sideMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+      document.body.classList.add('menu-open');
+    }
+
+    function closeMenu() {
+      sideMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.classList.remove('menu-open');
+    }
+
+    menuOpen.addEventListener('click', openMenu);
+    menuClose.addEventListener('click', closeMenu);
+    menuOverlay.addEventListener('click', closeMenu);
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
+    });
+
+
+    // PAYMENT DATA
+    const savedPayment = sessionStorage.getItem('paymentData');
+
+    let paymentData = null;
+
+    try {
+      paymentData = savedPayment
+        ? JSON.parse(savedPayment)
+        : null;
+    } catch (error) {
+      paymentData = null;
+    }
+
+    const formatPrice = price =>
+      Number(price).toLocaleString('ko-KR') + '원';
+
+
+    // ORDER NUMBER
+    const now = new Date();
+
+    const dateString =
+      now.getFullYear() +
+      String(now.getMonth() + 1).padStart(2, '0') +
+      String(now.getDate()).padStart(2, '0');
+
+    const orderNumber =
+      dateString + String(Math.floor(Math.random() * 9000) + 1000);
+
+    document.getElementById('orderNumber').textContent =
+      orderNumber;
+
+    document.getElementById('orderDate').textContent =
+      now.getFullYear() + '.' +
+      String(now.getMonth() + 1).padStart(2, '0') + '.' +
+      String(now.getDate()).padStart(2, '0') + ' ' +
+      String(now.getHours()).padStart(2, '0') + ':' +
+      String(now.getMinutes()).padStart(2, '0');
+
+
+    // DISPLAY ORDER DATA
+    if (paymentData && paymentData.order) {
+
+      const order = paymentData.order;
+      const customer = paymentData.customer || {};
+
+      const productPrice = Number(order.totalPrice) || 0;
+      const deliveryFee = Number(paymentData.deliveryFee) || 0;
+      const finalPrice = Number(paymentData.finalPrice) || 0;
+
+      const options = order.options || [];
+
+      const optionNames = options
+        .map(option => option.name)
+        .filter(Boolean);
+
+      document.getElementById('productName').textContent =
+        order.name || '기본 떡볶이';
+
+      document.getElementById('productOption').textContent =
+        optionNames.length > 0
+          ? optionNames.join(' / ')
+          : '추가 옵션 없음';
+
+      document.getElementById('productQuantity').textContent =
+        '수량 ' + (order.quantity || 1) + '개';
+
+      document.getElementById('productPrice').textContent =
+        formatPrice(productPrice);
+
+      document.getElementById('customerName').textContent =
+        customer.name || '-';
+
+      document.getElementById('customerPhone').textContent =
+        customer.phone || '-';
+
+      document.getElementById('customerAddress').textContent =
+        (customer.address || '-') +
+        (customer.detailAddress ? ' ' + customer.detailAddress : '');
+
+      document.getElementById('deliveryRequest').textContent =
+        customer.request || '없음';
+
+      document.getElementById('summaryProductPrice').textContent =
+        formatPrice(productPrice);
+
+      document.getElementById('deliveryPrice').textContent =
+        formatPrice(deliveryFee);
+
+      document.getElementById('paymentMethod').textContent =
+        paymentData.paymentMethod || '카드 결제';
+
+      document.getElementById('finalPrice').textContent =
+        formatPrice(finalPrice);
+
+    }
+
+  </script>
+
 </body>
 </html>

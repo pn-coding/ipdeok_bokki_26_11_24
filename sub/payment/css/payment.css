@@ -1,0 +1,522 @@
+
+/* =========================
+   GLOBAL
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: #000000;
+}
+
+body {
+  width: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+  color: #000000;
+  background: #ffffff;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+}
+
+input,
+select {
+  font-family: inherit;
+}
+
+.container {
+  width: 100%;
+  max-width: 500px;
+  min-height: 100vh;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+  width: 100%;
+  height: 60px;
+  padding: 0 20px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo img {
+  display: block;
+  width: auto;
+  height: 30px;
+  object-fit: contain;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+}
+
+.menu-btn i {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* =========================
+   PAGE TITLE
+========================= */
+
+.page-title {
+  width: 100%;
+  padding: 35px 20px 30px;
+  text-align: center;
+}
+
+.page-title h1 {
+  font-size: 30px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.page-title p {
+  margin-top: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #838383;
+}
+
+
+/* =========================
+   PAYMENT SECTION
+========================= */
+
+.payment-section {
+  width: 100%;
+  padding: 25px 20px;
+  border-bottom: 8px solid #eeeeee;
+}
+
+.section-title {
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   ORDER PRODUCT
+========================= */
+
+.order-product {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.product-image {
+  flex: 0 0 100px;
+  width: 100px;
+  height: 100px;
+
+  border-radius: 10px;
+  background: #858585;
+  overflow: hidden;
+}
+
+.product-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.product-info h3 {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.product-info p {
+  margin-top: 5px;
+  font-size: 12px;
+  color: #838383;
+}
+
+.product-info .product-quantity {
+  margin-top: 5px;
+}
+
+.product-info strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   FORM GROUP
+========================= */
+
+.form-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin: 15px 0 8px;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  height: 45px;
+  padding: 0 12px;
+
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  outline: none;
+
+  background: #ffffff;
+  font-size: 14px;
+  color: #000000;
+}
+
+.form-group input::placeholder {
+  color: #aaaaaa;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #858585;
+}
+
+
+/* ADDRESS */
+
+.address-row {
+  width: 100%;
+  display: flex;
+  gap: 8px;
+}
+
+.address-row input {
+  flex: 1;
+  min-width: 0;
+}
+
+.address-btn {
+  flex: 0 0 90px;
+  height: 45px;
+
+  border-radius: 8px;
+  background: #858585;
+  color: #ffffff;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   PAYMENT METHOD
+========================= */
+
+.payment-method-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.payment-method {
+  min-height: 55px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border-bottom: 1px solid #eeeeee;
+  cursor: pointer;
+}
+
+.payment-method:last-child {
+  border-bottom: none;
+}
+
+.payment-method input {
+  width: 18px;
+  height: 18px;
+  accent-color: #858585;
+}
+
+.payment-method span {
+  font-size: 14px;
+  font-weight: 400;
+}
+
+
+/* =========================
+   PRICE SUMMARY
+========================= */
+
+.price-summary {
+  width: 100%;
+}
+
+.price-row {
+  width: 100%;
+  margin-bottom: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  font-size: 14px;
+}
+
+.price-row span {
+  color: #555555;
+}
+
+.price-row strong {
+  font-weight: 500;
+}
+
+.total-row {
+  margin-top: 25px;
+  margin-bottom: 0;
+  padding-top: 20px;
+
+  border-top: 1px solid #dddddd;
+}
+
+.total-row span {
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.total-row strong {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+
+/* =========================
+   AGREEMENT
+========================= */
+
+.agreement-section {
+  width: 100%;
+  padding: 25px 20px;
+}
+
+.agreement-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+
+  cursor: pointer;
+}
+
+.agreement-item input {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+  margin-top: 2px;
+
+  accent-color: #858585;
+}
+
+.agreement-item span {
+  font-size: 13px;
+  line-height: 1.6;
+  color: #555555;
+}
+
+
+/* =========================
+   PAYMENT BUTTON
+========================= */
+
+.payment-button-section {
+  width: 100%;
+  padding: 0 20px 40px;
+}
+
+.payment-btn {
+  width: 100%;
+  height: 60px;
+
+  border-radius: 10px;
+  background: #858585;
+  color: #ffffff;
+
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.payment-btn:active {
+  background: #666666;
+}
+
+.payment-notice {
+  margin-top: 12px;
+
+  text-align: center;
+  font-size: 11px;
+  color: #999999;
+}
+
+
+/* =========================
+   SIDE MENU
+========================= */
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: rgba(0, 0, 0, 0.5);
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+
+  z-index: 100;
+}
+
+.menu-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* SIDE MENU */
+
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+
+  width: min(66.666vw, 333px);
+  height: 100vh;
+  height: 100dvh;
+
+  padding: 25px 20px;
+
+  background: #ffffff;
+
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+
+  z-index: 101;
+}
+
+.side-menu.active {
+  transform: translateX(0);
+}
+
+
+/* SIDE MENU HEADER */
+
+.side-menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  padding-bottom: 25px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.menu-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+}
+
+.menu-close i {
+  width: 24px;
+  height: 24px;
+}
+
+
+/* SIDE MENU LIST */
+
+.side-menu-list {
+  list-style: none;
+  margin-top: 20px;
+}
+
+.side-menu-list li {
+  border-bottom: 1px solid #eeeeee;
+}
+
+.side-menu-list a {
+  display: block;
+  padding: 20px 0;
+
+  color: #000000;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 360px) {
+
+  .product-image {
+    flex-basis: 85px;
+    width: 85px;
+    height: 85px;
+  }
+
+  .product-info h3 {
+    font-size: 14px;
+  }
+
+  .total-row strong {
+    font-size: 18px;
+  }
+
+  .address-btn {
+    flex-basis: 75px;
+  }
+
+}
